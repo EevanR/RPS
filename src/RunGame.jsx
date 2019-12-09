@@ -6,12 +6,18 @@ class RunGame extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      result: "Play the game"
+      result: "Play the game",
+      user: " Choose your Weapon",
+      computer: " is waiting... TO DESTROY YOU"
     }
   }
 
   handleClick(userInput) {
-    this.setState({ result: runGame(userInput) })
+    this.setState({ 
+      result: runGame(userInput),
+      user: userInput,
+      // computer: 
+    })
     function runGame (userInput) {
       const compGenerate = () => {
         let computer = Math.floor(Math.random()*3)
@@ -42,16 +48,19 @@ class RunGame extends React.Component {
       } else {
         return "Computer Smashes You!"
       }
-    }
+    } 
   }
 
   render() {
+    const {result, user, computer} = this.state;
     return (
       <div>
         <button onClick={() => this.handleClick("rock")}>Rock</button>
         <button onClick={() => this.handleClick("paper")}>Paper</button>
         <button onClick={() => this.handleClick("scissors")}>Scissors</button>
-        <p>{this.state.result}</p>
+        <p>{result}</p>
+        <p>Player: {user}</p>
+        <p>Computer {computer}</p>
       </div>
     )
   }
