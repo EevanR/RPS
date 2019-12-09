@@ -1,9 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Hello from "./Hello"
+import RunGame from "./RunGame"
 
 const App = () => {
-  return <Hello />
-};
+  return  (
+    <>
+      <h1>Rock Paper Scissors</h1>
+      <RunGame />
+    </>
+  )
+}
+
 
 ReactDOM.render(<App />, document.getElementById("app"))
