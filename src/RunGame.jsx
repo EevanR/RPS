@@ -12,43 +12,43 @@ class RunGame extends React.Component {
     }
   }
 
-  handleClick(userInput) {
-    this.setState({ 
-      result: runGame(userInput),
-      user: userInput,
-      // computer: 
-    })
-    function runGame (userInput) {
-      const compGenerate = () => {
-        let computer = Math.floor(Math.random()*3)
-        if (computer == 2) {
-          return "rock"
-        } else if (computer == 1) {
-          return "paper"
-        } else {
-          return "scissors"
-        };
-      }
-
-      let compInput = compGenerate()
-      console.log(compInput);
-
-      if (userInput === compInput) {
-        return "It's a tie Muthafuckas!"
-      } else if (userInput === "rock" && compInput === "paper") {
-        return "Computer Wins!"
-      } else if (userInput === "rock" && compInput === "scissors") {
-        return "You Win!"
-      } else if (userInput === "paper" && compInput === "scissors") {
-        return "Computer Wins!"
-      } else if (userInput === "paper"  && compInput === "rock") {
-        return "You Win!"
-      } else if (userInput === "scissors" && compInput === "paper") {
-        return "You Win!"
+  compGen() {
+      let computer = Math.floor(Math.random()*3)
+      if (computer == 2) {
+        return "rock"
+      } else if (computer == 1) {
+        return "paper"
       } else {
-        return "Computer Smashes You!"
-      }
-    } 
+        return "scissors"
+      };
+  }
+
+  runGame(userInput, compInput) { 
+    if (userInput === compInput) {
+      return "It's a tie Muthafuckas!"
+    } else if (userInput === "rock" && compInput === "paper") {
+      return "Computer Wins!"
+    } else if (userInput === "rock" && compInput === "scissors") {
+      return "You Win!"
+    } else if (userInput === "paper" && compInput === "scissors") {
+      return "Computer Wins!"
+    } else if (userInput === "paper"  && compInput === "rock") {
+      return "You Win!"
+    } else if (userInput === "scissors" && compInput === "paper") {
+      return "You Win!"
+    } else {
+      return "Computer Smashes You!"
+    }
+  } 
+
+  handleClick(userInput) {
+    let compInput = this.compGen();
+    let gameResult = this.runGame(userInput, compInput);
+    this.setState({ 
+      result: gameResult,
+      user: userInput,
+      computer: compInput
+    })  
   }
 
   render() {
