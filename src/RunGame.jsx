@@ -84,19 +84,27 @@ class RunGame extends React.Component {
   render() {
     const {result, user, computer, compCount, userCount } = this.state;
     return (
-      <div>
-        <h1>Rock Paper Scissors</h1>
-        <button onClick={() => this.handleClick("rock")}>Rock</button>
-        <button onClick={() => this.handleClick("paper")}>Paper</button>
-        <button onClick={() => this.handleClick("scissors")}>Scissors</button>
-        <div>
+      <div className="main">
+        <div className="divTop">
+          <h1>Rock Paper Scissors</h1>
+          <p>{result}</p>
+        </div >
+        <div id="centerText" className="divMid">
+          <div className="stretchDiv">
+          </div>
+          <div id="toBack">
+            <p>Player: {user}</p>
+            <button onClick={() => this.handleClick("rock")}>Rock</button>
+            <button onClick={() => this.handleClick("paper")}>Paper</button>
+            <button onClick={() => this.handleClick("scissors")}>Scissors</button>
+            <p>Computer: {computer}</p>
+          </div>
+        </div>
+        <div className="divbottom">
+          <p id="compScore">Computer's Score! {compCount}</p>
+          <p>Your Score! {userCount}</p>
           <button className='reset' onClick={() => this.resetScore()}>Reset</button>
-        </div>          
-        <p>{result}</p>
-        <p>Player: {user}</p>
-        <p>Computer: {computer}</p>
-        <p>Computer's Score! {compCount}</p>
-        <p>Your Score! {userCount}</p>
+        </div>
       </div>
     )
   }
