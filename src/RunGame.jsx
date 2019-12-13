@@ -86,7 +86,7 @@ class RunGame extends React.Component {
     return (
       <div className="main">
         <div className="divTop">
-          <h1>Rock Paper Scissors</h1>
+          <h1>Rock Paper Scissors <span className="span">for the galaxy...</span></h1>
           <p>{result}</p>
         </div >
         <div id="centerText" className="divMid">
