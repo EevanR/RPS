@@ -29,37 +29,32 @@ class RunGame extends React.Component {
     if (userInput === compInput) {
       return "It's a tie"
     } else if (userInput === "rock" && compInput === "paper") {
-      this.increaseComputer()
+      this.setScore(1, 0)
       return "Computer Wins!"
     } else if (userInput === "rock" && compInput === "scissors") {
-      this.increaseUser()
+      this.setScore(0, 1)
       return "You Win!"
     } else if (userInput === "paper" && compInput === "scissors") {
-      this.increaseComputer()
+      this.setScore(1, 0)
       return "Computer Wins!"
     } else if (userInput === "paper"  && compInput === "rock") {
-      this.increaseUser()
+      this.setScore(0, 1)
       return "You Win!"
     } else if (userInput === "scissors" && compInput === "paper") {
-      this.increaseUser()
+      this.setScore(0, 1)
       return "You Win!"
     } else {
-      this.increaseComputer()
+      this.setScore(1, 0)
       return "Computer Smashes You!"
     }
   } 
 
-  increaseComputer() {
+  setScore(arg1, arg2) {
     this.setState({
-    compCount: this.state.compCount + 1
-    });
-  };
-
-  increaseUser() {
-    this.setState({
-    userCount: this.state.userCount + 1
-    });
-  };
+      compCount: this.state.compCount + arg1,
+      userCount: this.state.userCount + arg2
+    })
+  }
 
   resetScore() {
     this.setState({
