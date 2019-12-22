@@ -26,26 +26,14 @@ class RunGame extends React.Component {
   }
 
   runGame(userInput, compInput) { 
-    if (userInput === compInput) {
-      return "It's a tie"
-    } else if (userInput === "rock" && compInput === "paper") {
-      this.setScore(1, 0)
-      return "Computer Wins!"
-    } else if (userInput === "rock" && compInput === "scissors") {
-      this.setScore(0, 1)
-      return "You Win!"
-    } else if (userInput === "paper" && compInput === "scissors") {
-      this.setScore(1, 0)
-      return "Computer Wins!"
-    } else if (userInput === "paper"  && compInput === "rock") {
-      this.setScore(0, 1)
-      return "You Win!"
-    } else if (userInput === "scissors" && compInput === "paper") {
-      this.setScore(0, 1)
-      return "You Win!"
-    } else {
-      this.setScore(1, 0)
-      return "Computer Smashes You!"
+    switch (`${userInput} ${compInput}`) {
+      case 'rock paper': this.setScore(1, 0); return "Computer Wins!";
+      case 'rock scissors': this.setScore(0, 1); return "User Wins!";
+      case 'paper scissors': this.setScore(1, 0); return "Computer Wins!";
+      case 'paper rock': this.setScore(0, 1); return "User Wins!";
+      case 'scissors paper': this.setScore(0, 1); return "User Wins!";
+      case 'scissors rock': this.setScore(1, 0); return "Computer Smashes You!";
+      default: return "It's a tie";
     }
   } 
 
