@@ -20,5 +20,9 @@ describe('Visitor can see landing page', () => {
 
     cy.get(".divbottom").contains("Reset").click()
 
+    cy.get(".divbottom")
+      .should("contain", "Computer's Score! 0")
+      .and("contain", "Your Score! 0")
+
   });
 })
