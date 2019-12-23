@@ -2,6 +2,9 @@
 
 Rock Paper Scissors is a web applitcation that users can use to play rock paper scissors agains the randomly generated choices of the computer.
 
+## Deployed Site
+https://eredonrockpaperscissors.netlify.com/ 
+
 ## User Stories
 User chooses Rock, Paper or Scissors
 ```
@@ -28,7 +31,7 @@ I need to determine a winner
 
 #### Actions available to the user
 
-
+Head to the deployed address listed above and choose rock, paper or scissors!
 
 ## Updates/Improvement plans
 Further styling and updates to game logic
