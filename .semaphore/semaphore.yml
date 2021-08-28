@@ -12,4 +12,7 @@ blocks:
           commands:
             - sem-version node 8
             - checkout
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
             - yarn install
+            - cache store node-modules-$(checksum package-lock.json) node_modules
+
