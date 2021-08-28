@@ -15,4 +15,12 @@ blocks:
             - cache restore node-modules-$(checksum package-lock.json),node-modules-
             - yarn install
             - cache store node-modules-$(checksum package-lock.json) node_modules
+  - name: Build site
+    task:
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
+            - yarn start
 
